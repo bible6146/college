@@ -1,29 +1,24 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class DrawDoll {
-	
+public class DrawDoll_Stack {
 	
 	public static int solution(int[][] board, int[] moves) {
-		ArrayList<Integer> list=new ArrayList<>();
-		list.add(-1);
+		Stack<Integer> stack =new Stack();
+		stack.add(-1);
 		int answer = 0;
 
 		for(int i=0;i<moves.length;i++) {
 			for(int j=0;j<board.length;j++) {
 				if(board[j][moves[i]-1]!=0) {
-					list.add(board[j][moves[i]-1]);	
-					board[j][moves[i]-1]=0;
-					
-					for(int x=0;x<list.size()-1;x++) {
-						if(list.get(x)==list.get(x+1)) {
-							list.remove(x);
-							list.remove(x);//remove시 길이 바로줄어듬
-							answer+=2;
-							x=0;
-						}
+					if(board[j][moves[i]-1]==stack.peek()) {
+						stack.pop();
+						answer+=2;
 					}
-					
+					else {
+						stack.push(board[j][moves[i]-1]);
+					}
+					board[j][moves[i]-1]=0;
 					break;
 				}		
 			}
