@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class HashMap {
+public class HashMapTest {
 
 	public boolean solution(String[] phone_book) {
 		Set set=new HashSet();
