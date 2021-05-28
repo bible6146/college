@@ -119,6 +119,14 @@ public class TableViewr extends JFrame implements ActionListener{
 				priceField.setText(String.valueOf(price));
 			}
 			else if(e.getSource()==b3) {
+				//sql 에서 statement 또는 preparedStatement 사용할수 있는데
+				//preparedStatement를 사용 권장 
+				//statement를 잘못사용하면 보안상의 취약점을 만들수 있다.
+				//sql injection 방법을 사용한 해커의 공격을 받 을수 있다.
+				
+				//preparedStatement는 sql 문 ? 안에 다넣어 줘야 한다.
+				
+				
 				String sql="insert into book(title,publisher,year,price) values(?,?,?,?)";
 				PreparedStatement pstmt= con.prepareStatement(sql);
 				
