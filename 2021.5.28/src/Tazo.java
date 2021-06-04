@@ -10,26 +10,31 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import com.google.gson.JsonObject;
 public class Tazo {	
 	
 	
 	public static void main(String[] args) {
 		try {
-			allowMethods("PATCH");
-
+//			allowMethods("PATCH");
+			JsonObject json=new JsonObject();
+			json.addProperty("ninkname", "sex");
+			
 	        HttpURLConnection conn = (HttpURLConnection) new URL("https://tazoapp.site/user/test/nickname").openConnection();
 	        
 //	        System.out.println(conn.getResponseCode());
-//	        conn.setRequestProperty("X-HTTP-Method-Override", "PATCH");
-	        conn.setRequestMethod("PATCH");
-	        conn.setDoInput(true);
+	        conn.setRequestMethod("POST");
+	        conn.setRequestProperty("X-HTTP-Method-Override", "PATCH");
+	        conn.setRequestProperty("Content-Type","application/jon");
+//	        conn.setDoInput(true);
 			conn.setDoOutput(true);
 			
-			StringBuffer buffer=new StringBuffer();
-			buffer.append("nickname=kim");
+//			StringBuffer buffer=new StringBuffer();
+//			buffer.append("nickname").append("kim");
 			
 			PrintWriter write=new PrintWriter(new OutputStreamWriter(conn.getOutputStream(),"UTF-8"));
-			write.println(buffer.toString());
+			write.println(json.toString());
 			write.flush();
 			
 //			JSONObject resultObj = new JSONObject();
