@@ -5,6 +5,9 @@ import java.net.Socket;
 
 
 public class DateClient {
+	/* cmd 명령어 링크
+	 * https://velog.io/@gillog/CMD-%EB%AA%85%EB%A0%B9%EC%96%B4%EB%A1%9C
+	 * -%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8-port-%EC%A2%85%EB%A3%8C%ED%95%98%EA%B8%B0*/
 
 	public static void main(String agrs[]) {
 		try(Socket socket=new Socket("localhost",9100)){
