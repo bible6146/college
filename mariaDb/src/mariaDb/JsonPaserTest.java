@@ -46,6 +46,7 @@ public class JsonPaserTest {
 
 			JsonParser json=new JsonParser();
 			JsonArray obj=(JsonArray)json.parse(result);
+			dbcreate();
 			for(int i=0;i<obj.size();i++) {
 				dbInsert((JsonObject)obj.get(i));
 			}
@@ -53,10 +54,20 @@ public class JsonPaserTest {
 			
 		}
 	}
+	public void dbcreate() {
+		try {
+			PreparedStatement pre=conn.prepareStatement("create table users2 as select * from users where 1=2");
+			pre.execute();
+		}catch (Exception e) {
+			e.getStackTrace();
+		}
+	}
+	
+	
 	public void dbInsert(JsonObject obj) {
 		try {
 			
-			PreparedStatement pre=conn.prepareStatement("insert into users values(?,?,?,?)");
+			PreparedStatement pre=conn.prepareStatement("insert into users2 values(?,?,?,?)");
 			pre.setInt(1, Integer.parseInt(obj.get("userId").toString()));
 			pre.setInt(2, Integer.parseInt(obj.get("id").toString()));
 			pre.setString(3, obj.get("title").toString());

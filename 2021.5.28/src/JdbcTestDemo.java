@@ -22,10 +22,10 @@ public class JdbcTestDemo extends JFrame implements ActionListener{
 	String name="root";
 	String pw="bi700523";
 	
-	ResultSet set;
 	
 	private static String JDBC_name="org.mariadb.jdbc.Driver";
 	
+	ResultSet set;
 	Connection conn;
 	
 	String sql="insert into temp(book_id,title) values(?,?)";
