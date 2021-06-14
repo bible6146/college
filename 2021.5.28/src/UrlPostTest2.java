@@ -34,12 +34,12 @@ public class UrlPostTest2 {
 			writer.println(data);
 			writer.flush();//혹시 안갔으면 비워라
 			
-//			StringBuffer buffer=new StringBuffer();
-//			
-//			InputStream input =con.getInputStream();
-//			InputStreamReader st=new InputStreamReader(input);
-//			
-//			BufferedReader reder=new BufferedReader(st);
+			StringBuffer buffer=new StringBuffer();
+			
+			InputStream input =con.getInputStream();
+			InputStreamReader st=new InputStreamReader(input);
+			
+			BufferedReader reder=new BufferedReader(st);
 			
 			
 		}catch(Exception e) {
